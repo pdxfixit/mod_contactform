@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0" client="site" method="upgrade">
+    <name>Contact Form</name>
+    <creationDate>May 29, 2012</creationDate>
+    <author>PDXfixIT</author>
+    <authorEmail>info@pdxfixit.com</authorEmail>
+    <authorUrl>http://www.pdxfixit.com/</authorUrl>
+    <version>1.8</version>
+    <description><![CDATA[<img src="http://updates.pdxfixit.com/logo.png" alt="PDXfixIT" border="0"/><br />Version: 1.8<br />Release Date: May 29, 2012<br />Contact Form]]></description>
+
+    <files>
+        <filename>helper.php</filename>
+        <filename>recaptchalib.php</filename>
+        <filename>index.html</filename>
+        <filename module="mod_contactform">mod_contactform.php</filename>
+        <folder>js</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <!-- Joomla! 1.5 -->
+    <params>
+        <param name="fname" type="list" default="required" label="First Name" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="fnameLabel" type="text" default="First Name" label="Label" description="What the user will see" size="42" />
+        <param name="fnameValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="fnameErrorMessage" type="text" default="Please enter a first name." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="fname-spacer" type="spacer" hr="true" />
+	
+        <param name="lname" type="list" default="required" label="Last Name" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="lnameLabel" type="text" default="Last Name" label="Label" description="What the user will see" size="42" />
+        <param name="lnameValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="lnameErrorMessage" type="text" default="Please enter a last name." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="lname-spacer" type="spacer" hr="true" />
+	
+        <param name="title" type="list" default="hide" label="Title" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="titleLabel" type="text" default="Title" label="Label" description="What the user will see" size="42" />
+        <param name="titleValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="titleErrorMessage" type="text" default="Please enter a title." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="title-spacer" type="spacer" hr="true" />
+	
+        <param name="org" type="list" default="hide" label="Organization" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="orgLabel" type="text" default="Organization" label="Label" description="What the user will see" size="42" />
+        <param name="orgValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="orgErrorMessage" type="text" default="Please enter your associated organization." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="org-spacer" type="spacer" hr="true" />
+	
+        <param name="address" type="list" default="hide" label="Address" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="addressLabel" type="text" default="Address" label="Label" description="What the user will see" size="42" />
+        <param name="addressValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="addressErrorMessage" type="text" default="Please enter your address." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="address-spacer" type="spacer" hr="true" />
+	
+        <param name="address2" type="list" default="hide" label="Address Line 2" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="address2Label" type="text" default="Address Line 2" label="Label" description="What the user will see" size="42" />
+        <param name="address2Value" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="address2ErrorMessage" type="text" default="Please enter additional address details." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="address2-spacer" type="spacer" hr="true" />
+	
+        <param name="city" type="list" default="hide" label="City" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="cityLabel" type="text" default="City" label="Label" description="What the user will see" size="42" />
+        <param name="cityValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="cityErrorMessage" type="text" default="Please enter your city." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="city-spacer" type="spacer" hr="true" />
+	
+        <param name="state" type="list" default="hide" label="State" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="stateLabel" type="text" default="State" label="Label" description="What the user will see" size="42" />
+        <param name="stateValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="stateErrorMessage" type="text" default="Please choose your state." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+        <param name="states" type="text" default="" label="States" description="List of two-letter state codes. &lt;br /&gt;(Comma-delimited only.) &lt;br /&gt;&lt;br /&gt;If left blank, all 50 states are used." size="64" />
+	
+        <param name="state-spacer" type="spacer" hr="true" />
+	
+        <param name="zip" type="list" default="hide" label="Zip Code" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="zipLabel" type="text" default="Zip Code" label="Label" description="What the user will see" size="42" />
+        <param name="zipValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="zipErrorMessage" type="text" default="Please enter your zip code." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="zip-spacer" type="spacer" hr="true" />
+	
+        <param name="phone" type="list" default="hide" label="Phone" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="phoneLabel" type="text" default="Phone" label="Label" description="What the user will see" size="42" />
+        <param name="phoneValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="phoneErrorMessage" type="text" default="Please enter your phone number." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="phone-spacer" type="spacer" hr="true" />
+	
+        <param name="email" type="list" default="required" label="Email" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="emailLabel" type="text" default="Email" label="Label" description="What the user will see" size="42" />
+        <param name="emailValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="emailErrorMessage" type="text" default="Please enter your email address." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="email-spacer" type="spacer" hr="true" />
+	
+        <param name="comments" type="list" default="show" label="Comments" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="commentsLabel" type="text" default="Comments" label="Label" description="What the user will see" size="42" />
+        <param name="commentsValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+        <param name="commentsErrorMessage" type="text" default="Please enter your comments." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+	
+        <param name="comments-spacer" type="spacer" hr="true" />
+	
+        <param name="custom1" type="list" default="hide" label="Custom Field 1" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="custom1Label" type="text" default="Custom 1" label="Label" description="What the user will see" size="42" />
+        <param name="custom1Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+        <param name="custom1ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+        <param name="custom1Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+            <option value="select">Drop-down</option>
+            <option value="radio">Radio</option>
+            <option value="checkbox">Checkboxes</option>
+            <option value="text">Text</option>
+            <option value="textarea">Textarea</option>
+            <option value="hidden">Hidden</option>
+        </param>
+        <param name="custom1Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+        <param name="custom1Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+        <param name="custom1HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+        <param name="custom1HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+	
+        <param name="custom1-spacer" type="spacer" hr="true" />
+	
+        <param name="custom2" type="list" default="hide" label="Custom Field 2" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="custom2Label" type="text" default="Custom 2" label="Label" description="What the user will see" size="42" />
+        <param name="custom2Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+        <param name="custom2ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+        <param name="custom2Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+            <option value="select">Drop-down</option>
+            <option value="radio">Radio</option>
+            <option value="checkbox">Checkboxes</option>
+            <option value="text">Text</option>
+            <option value="textarea">Textarea</option>
+            <option value="hidden">Hidden</option>
+        </param>
+        <param name="custom2Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+        <param name="custom2Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+        <param name="custom2HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+        <param name="custom2HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+	
+        <param name="custom2-spacer" type="spacer" hr="true" />
+	
+        <param name="custom3" type="list" default="hide" label="Custom Field 3" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="custom3Label" type="text" default="Custom 3" label="Label" description="What the user will see" size="42" />
+        <param name="custom3Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+        <param name="custom3ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+        <param name="custom3Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+            <option value="select">Drop-down</option>
+            <option value="radio">Radio</option>
+            <option value="checkbox">Checkboxes</option>
+            <option value="text">Text</option>
+            <option value="textarea">Textarea</option>
+            <option value="hidden">Hidden</option>
+        </param>
+        <param name="custom3Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+        <param name="custom3Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+        <param name="custom3HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+        <param name="custom3HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+	
+        <param name="custom3-spacer" type="spacer" hr="true" />
+	
+        <param name="custom4" type="list" default="hide" label="Custom Field 4" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="custom4Label" type="text" default="Custom 4" label="Label" description="What the user will see" size="42" />
+        <param name="custom4Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+        <param name="custom4ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+        <param name="custom4Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+            <option value="select">Drop-down</option>
+            <option value="radio">Radio</option>
+            <option value="checkbox">Checkboxes</option>
+            <option value="text">Text</option>
+            <option value="textarea">Textarea</option>
+            <option value="hidden">Hidden</option>
+        </param>
+        <param name="custom4Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+        <param name="custom4Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+        <param name="custom4HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+        <param name="custom4HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+	
+        <param name="custom4-spacer" type="spacer" hr="true" />
+	
+        <param name="custom5" type="list" default="hide" label="Custom Field 5" description="Hide, Show, or Required">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+            <option value="required">Required</option>
+        </param>
+        <param name="custom5Label" type="text" default="Custom 5" label="Label" description="What the user will see" size="42" />
+        <param name="custom5Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+        <param name="custom5ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+        <param name="custom5Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+            <option value="select">Drop-down</option>
+            <option value="radio">Radio</option>
+            <option value="checkbox">Checkboxes</option>
+            <option value="text">Text</option>
+            <option value="textarea">Textarea</option>
+            <option value="hidden">Hidden</option>
+        </param>
+        <param name="custom5Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+        <param name="custom5Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+        <param name="custom5HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+        <param name="custom5HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+    </params>
+    <params group="advanced">
+        <param name="captcha" type="list" default="show" label="CAPTCHA" description="Completely Automated Public Turing Test to tell Computers and Humans Apart">
+            <option value="hide">Hide</option>
+            <option value="show">Show</option>
+        </param>
+        <param name="captcha-public" type="text" default="6LeUxMUSAAAAAIm_9_Gfp-QUzsTJFQHzMPJ2wdsn" label="Public Key" description="Your reCAPTCHA Public Key.  Use this in the JavaScript code that is served to your users." size="42" />
+        <param name="captcha-private" type="text" default="6LeUxMUSAAAAABWv7Z5ldYClGFu2HsWwHYViWHwl" label="Private Key" description="Your reCAPTCHA Private Key.  Use this when communicating between your server and our server. Be sure to keep it a secret." size="42" />
+	
+        <param name="@spacer" type="spacer" default="" label="" description="" />
+	
+        <param name="moduleclass_sfx" type="text" label="Module Class Suffix" description="A suffix to be applied to the CSS class of the Module. This allows for individual Module styling." />
+        <param name="sendemail" type="text" default="" label="Email To" description="Email address where all completed forms should be sent." size="37" />
+        <param name="table" type="text" default="#__contactform" label="Database Table" description="Where to store registration information.  #_ is used as the Joomla! table prefix." size="37" />
+	
+        <param name="@spacer" type="spacer" default="" label="" description="" />
+	
+        <param name="successnotice" type="textarea" default="Submission received successfully.  Thank you." label="Success Notice" description="This is used only when there are no events, and everything succeeds." rows="5" cols="42" />
+        <param name="dberror" type="textarea" default="We are sorry for the inconvenience, but there was an error saving your data.  Please try again." label="Save Data Error Message" description="Message to be displayed if data cannot be saved." rows="5" cols="42" />
+    </params>
+
+    <!-- Joomla! 1.6, 1.7 & 2.5 -->
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="fname" type="list" default="required" label="First Name" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="fnameLabel" type="text" default="First Name" label="Label" description="What the user will see" size="42" />
+                <field name="fnameValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="fnameErrorMessage" type="text" default="Please enter a first name." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="fname-spacer" type="spacer" hr="true" />
+		
+                <field name="lname" type="list" default="required" label="Last Name" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="lnameLabel" type="text" default="Last Name" label="Label" description="What the user will see" size="42" />
+                <field name="lnameValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="lnameErrorMessage" type="text" default="Please enter a last name." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="lname-spacer" type="spacer" hr="true" />
+		
+                <field name="title" type="list" default="hide" label="Title" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="titleLabel" type="text" default="Title" label="Label" description="What the user will see" size="42" />
+                <field name="titleValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="titleErrorMessage" type="text" default="Please enter a title." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="title-spacer" type="spacer" hr="true" />
+		
+                <field name="org" type="list" default="hide" label="Organization" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="orgLabel" type="text" default="Organization" label="Label" description="What the user will see" size="42" />
+                <field name="orgValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="orgErrorMessage" type="text" default="Please enter your associated organization." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="org-spacer" type="spacer" hr="true" />
+		
+                <field name="address" type="list" default="hide" label="Address" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="addressLabel" type="text" default="Address" label="Label" description="What the user will see" size="42" />
+                <field name="addressValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="addressErrorMessage" type="text" default="Please enter your address." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="address-spacer" type="spacer" hr="true" />
+		
+                <field name="address2" type="list" default="hide" label="Address Line 2" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="address2Label" type="text" default="Address Line 2" label="Label" description="What the user will see" size="42" />
+                <field name="address2Value" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="address2ErrorMessage" type="text" default="Please enter additional address details." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="address2-spacer" type="spacer" hr="true" />
+		
+                <field name="city" type="list" default="hide" label="City" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="cityLabel" type="text" default="City" label="Label" description="What the user will see" size="42" />
+                <field name="cityValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="cityErrorMessage" type="text" default="Please enter your city." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="city-spacer" type="spacer" hr="true" />
+		
+                <field name="state" type="list" default="hide" label="State" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="stateLabel" type="text" default="State" label="Label" description="What the user will see" size="42" />
+                <field name="stateValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="stateErrorMessage" type="text" default="Please choose your state." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+                <field name="states" type="text" default="" label="States" description="List of two-letter state codes. &lt;br /&gt;(Comma-delimited only.) &lt;br /&gt;&lt;br /&gt;If left blank, all 50 states are used." size="64" />
+		
+                <field name="state-spacer" type="spacer" hr="true" />
+		
+                <field name="zip" type="list" default="hide" label="Zip Code" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="zipLabel" type="text" default="Zip Code" label="Label" description="What the user will see" size="42" />
+                <field name="zipValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="zipErrorMessage" type="text" default="Please enter your zip code." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="zip-spacer" type="spacer" hr="true" />
+		
+                <field name="phone" type="list" default="hide" label="Phone" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="phoneLabel" type="text" default="Phone" label="Label" description="What the user will see" size="42" />
+                <field name="phoneValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="phoneErrorMessage" type="text" default="Please enter your phone number." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="phone-spacer" type="spacer" hr="true" />
+		
+                <field name="email" type="list" default="required" label="Email" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="emailLabel" type="text" default="Email" label="Label" description="What the user will see" size="42" />
+                <field name="emailValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="emailErrorMessage" type="text" default="Please enter your email address." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="email-spacer" type="spacer" hr="true" />
+		
+                <field name="comments" type="list" default="show" label="Comments" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="commentsLabel" type="text" default="Comments" label="Label" description="What the user will see" size="42" />
+                <field name="commentsValue" type="text" default="" label="Default Text" description="Text that will be visible when visiting the form for the first time, or if the form is reset." />
+                <field name="commentsErrorMessage" type="text" default="Please enter your comments." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+		
+                <field name="comments-spacer" type="spacer" hr="true" />
+		
+                <field name="custom1" type="list" default="hide" label="Custom Field 1" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="custom1Label" type="text" default="Custom 1" label="Label" description="What the user will see" size="42" />
+                <field name="custom1Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+                <field name="custom1ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+                <field name="custom1Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+                    <option value="select">Drop-down</option>
+                    <option value="radio">Radio</option>
+                    <option value="checkbox">Checkboxes</option>
+                    <option value="text">Text</option>
+                    <option value="textarea">Textarea</option>
+                    <option value="hidden">Hidden</option>
+                </field>
+                <field name="custom1Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+                <field name="custom1Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+                <field name="custom1HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+                <field name="custom1HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+		
+                <field name="custom1-spacer" type="spacer" hr="true" />
+		
+                <field name="custom2" type="list" default="hide" label="Custom Field 2" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="custom2Label" type="text" default="Custom 2" label="Label" description="What the user will see" size="42" />
+                <field name="custom2Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+                <field name="custom2ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+                <field name="custom2Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+                    <option value="select">Drop-down</option>
+                    <option value="radio">Radio</option>
+                    <option value="checkbox">Checkboxes</option>
+                    <option value="text">Text</option>
+                    <option value="textarea">Textarea</option>
+                    <option value="hidden">Hidden</option>
+                </field>
+                <field name="custom2Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+                <field name="custom2Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+                <field name="custom2HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+                <field name="custom2HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+		
+                <field name="custom2-spacer" type="spacer" hr="true" />
+		
+                <field name="custom3" type="list" default="hide" label="Custom Field 3" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="custom3Label" type="text" default="Custom 3" label="Label" description="What the user will see" size="42" />
+                <field name="custom3Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+                <field name="custom3ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+                <field name="custom3Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+                    <option value="select">Drop-down</option>
+                    <option value="radio">Radio</option>
+                    <option value="checkbox">Checkboxes</option>
+                    <option value="text">Text</option>
+                    <option value="textarea">Textarea</option>
+                    <option value="hidden">Hidden</option>
+                </field>
+                <field name="custom3Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+                <field name="custom3Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+                <field name="custom3HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+                <field name="custom3HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+		
+                <field name="custom3-spacer" type="spacer" hr="true" />
+		
+                <field name="custom4" type="list" default="hide" label="Custom Field 4" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="custom4Label" type="text" default="Custom 4" label="Label" description="What the user will see" size="42" />
+                <field name="custom4Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+                <field name="custom4ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+                <field name="custom4Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+                    <option value="select">Drop-down</option>
+                    <option value="radio">Radio</option>
+                    <option value="checkbox">Checkboxes</option>
+                    <option value="text">Text</option>
+                    <option value="textarea">Textarea</option>
+                    <option value="hidden">Hidden</option>
+                </field>
+                <field name="custom4Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+                <field name="custom4Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+                <field name="custom4HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+                <field name="custom4HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+		
+                <field name="custom4-spacer" type="spacer" hr="true" />
+		
+                <field name="custom5" type="list" default="hide" label="Custom Field 5" description="Hide, Show, or Required">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                    <option value="required">Required</option>
+                </field>
+                <field name="custom5Label" type="text" default="Custom 5" label="Label" description="What the user will see" size="42" />
+                <field name="custom5Value" type="text" default="" label="Default Text" description="Option or text that will be selected or displayed when visiting the form for the first time, or if the form is reset." />
+                <field name="custom5ErrorMessage" type="text" default="Please choose one." label="Error Message" description="The warning which will be displayed to the user, if this field is required, and is not filled out upon submit." size="64" />
+                <field name="custom5Type" type="list" default="select" label="Type" description="Choose the type of element to use">
+                    <option value="select">Drop-down</option>
+                    <option value="radio">Radio</option>
+                    <option value="checkbox">Checkboxes</option>
+                    <option value="text">Text</option>
+                    <option value="textarea">Textarea</option>
+                    <option value="hidden">Hidden</option>
+                </field>
+                <field name="custom5Values" type="text" default="One,Two,Three" label="Values" description="List of values. &lt;br /&gt;(Comma- or Pipe-delimited.) &lt;br /&gt;&lt;br /&gt;Only used if Type is Drop-down, Radio or Checkboxes." size="64" />
+                <field name="custom5Mask" type="text" default="" label="Input Mask" description="a - Represents an alpha character (A-Z,a-z) &lt;br /&gt;9 - Represents a numeric character (0-9) &lt;br /&gt;* - Represents an alphanumeric character (A-Z,a-z,0-9) &lt;br /&gt;Anything listed after '?' within the mask is considered optional user input. &lt;br /&gt;&lt;br /&gt;Example: Phone Number, with optional extension;&lt;br /&gt;999-999-9999? x99999" />
+                <field name="custom5HelpTitle" type="text" default="" label="Help Title" description="Link text visible to the user." size="42" />
+                <field name="custom5HelpText" type="text" default="" label="Help Text" description="Helpful information to be displayed to the user when a link is clicked." size="64" />
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="captcha" type="list" default="show" label="CAPTCHA" description="Completely Automated Public Turing Test to tell Computers and Humans Apart">
+                    <option value="hide">Hide</option>
+                    <option value="show">Show</option>
+                </field>
+                <field name="captcha-public" type="text" default="6LeUxMUSAAAAAIm_9_Gfp-QUzsTJFQHzMPJ2wdsn" label="Public Key" description="Your reCAPTCHA Public Key.  Use this in the JavaScript code that is served to your users." size="42" />
+                <field name="captcha-private" type="text" default="6LeUxMUSAAAAABWv7Z5ldYClGFu2HsWwHYViWHwl" label="Private Key" description="Your reCAPTCHA Private Key.  Use this when communicating between your server and our server. Be sure to keep it a secret." size="42" />
+		
+                <field name="captcha-spacer" type="spacer" hr="true" />
+		
+                <field name="moduleclass_sfx" type="text" label="Module Class Suffix" description="A suffix to be applied to the CSS class of the Module. This allows for individual Module styling." />
+                <field name="sendemail" type="text" default="" label="Email To" description="Email address(es) where completed forms should be sent.  Multiple addresses should be comma-separated, please." size="37" />
+                <field name="table" type="text" default="#__contactform" label="Database Table" description="Where to store registration information.  #_ is used as the Joomla! table prefix." size="37" />
+                <field name="successnotice" type="textarea" default="Submission received successfully.  Thank you." label="Success Notice" description="This is used only when there are no events, and everything succeeds." rows="5" cols="42" />
+                <field name="dberror" type="textarea" default="We are sorry for the inconvenience, but there was an error saving your data.  Please try again." label="Save Data Error Message" description="Message to be displayed if data cannot be saved." rows="5" cols="42" />
+            </fieldset>
+        </fields>
+    </config>
+    
+    <updateservers>
+        <server type="extension" priority="1" name="PDXfixIT">http://updates.pdxfixit.com/mod_contactform.xml</server>
+    </updateservers>
+
+</install>
