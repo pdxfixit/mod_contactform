@@ -6,6 +6,7 @@ class modContactFormHelper {
 
     private $_params;
     private $_email;
+    private $_emailsubject;
     private $_table;
     public $showCAPTCHA = FALSE;
     public $data = array();
@@ -132,6 +133,9 @@ class modContactFormHelper {
 
         if ($params->get('sendemail'))
             $this->_email = $params->get('sendemail');
+        
+        if ($params->get('emailsubject'))
+            $this->_emailsubject = $params->get('emailsubject');
 
         if ($params->get('captcha') == 'show')
             $this->showCAPTCHA = TRUE;
@@ -181,7 +185,6 @@ class modContactFormHelper {
 
             if (!$db->query()) {
                 if ($db->getErrorNum() == 1054) { //unknown column
-                    
                 } elseif ($db->getErrorNum() == 1146) {  //if the table doesn't exist, create it...
                     $query = "CREATE TABLE IF NOT EXISTS " . $db->nameQuote($this->_params->get('table')) . " (
                           `id` int(11) NOT NULL auto_increment,
@@ -224,12 +227,10 @@ class modContactFormHelper {
             }
         }
 
-        if ($this->_email)
+        if (!empty($this->_email))
             $this->sendEmail();
 
-        //require(JModuleHelper::getLayoutPath('mod_contactform'));
         require(JModuleHelper::getLayoutPath('mod_contactform', 'success'));
-        //$app->redirect(JRoute::_($_SERVER['REQUEST_URI']), $this->_params->get('successnotice'));
     }
 
     private function _getFields() { //parse the parameter data
@@ -278,9 +279,12 @@ class modContactFormHelper {
 
         $from = $app->getCfg('mailfrom');
         $fromname = $app->getCfg('sitename');
-        $recipient = $this->_email;
-        $subject = $app->getCfg('sitename') . ' -- New Submission';
-        
+        if (empty($this->_emailsubject)) {
+            $subject = $app->getCfg('sitename') . ' -- New Submission';
+        } else {
+            $subject = $this->_emailsubject;
+        }
+
         $body = "<table>";
         $body .= '<tfoot><tr><td colspan="2" style="font-size: smaller;"><hr noshade="noshade" size="3" width="100%" />This message has been brought to you by ';
         if (strtolower($fromname) !== "pdxfixit") {
@@ -335,10 +339,12 @@ class modContactFormHelper {
         $cc = null;
         $bcc = null;
         $attachment = null;
-        $replyto = null;#$this->data['email'];
-        $replytoname = null;#trim($this->data['fname'] . " " . $this->data['lname']);
+        $replyto = null; #$this->data['email'];
+        $replytoname = null; #trim($this->data['fname'] . " " . $this->data['lname']);
 
-        JUtility::sendMail($from, $fromname, $recipient, $subject, $body, $mode, $cc, $bcc, $attachment, $replyto, $replytoname);
+        foreach(explode(',', $this->_email) as $recipient) {
+            JUtility::sendMail($from, $fromname, $recipient, $subject, $body, $mode, $cc, $bcc, $attachment, $replyto, $replytoname);
+        }
     }
 
 }

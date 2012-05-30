@@ -277,6 +277,7 @@
 	
         <param name="moduleclass_sfx" type="text" label="Module Class Suffix" description="A suffix to be applied to the CSS class of the Module. This allows for individual Module styling." />
         <param name="sendemail" type="text" default="" label="Email To" description="Email address where all completed forms should be sent." size="37" />
+        <param name="emailsubject" type="text" default="" label="Email Subject (Optional)" description="Optional subject line for all outgoing emails." size="37" />
         <param name="table" type="text" default="#__contactform" label="Database Table" description="Where to store registration information.  #_ is used as the Joomla! table prefix." size="37" />
 	
         <param name="@spacer" type="spacer" default="" label="" description="" />
@@ -547,6 +548,7 @@
 		
                 <field name="moduleclass_sfx" type="text" label="Module Class Suffix" description="A suffix to be applied to the CSS class of the Module. This allows for individual Module styling." />
                 <field name="sendemail" type="text" default="" label="Email To" description="Email address(es) where completed forms should be sent.  Multiple addresses should be comma-separated, please." size="37" />
+                <field name="emailsubject" type="text" default="" label="Email Subject (Optional)" description="Optional subject line for all outgoing emails." size="37" />
                 <field name="table" type="text" default="#__contactform" label="Database Table" description="Where to store registration information.  #_ is used as the Joomla! table prefix." size="37" />
                 <field name="successnotice" type="textarea" default="Submission received successfully.  Thank you." label="Success Notice" description="This is used only when there are no events, and everything succeeds." rows="5" cols="42" />
                 <field name="dberror" type="textarea" default="We are sorry for the inconvenience, but there was an error saving your data.  Please try again." label="Save Data Error Message" description="Message to be displayed if data cannot be saved." rows="5" cols="42" />
