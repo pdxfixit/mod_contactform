@@ -280,7 +280,7 @@ class modContactFormHelper {
         $from = $app->getCfg('mailfrom');
         $fromname = $app->getCfg('sitename');
         if (empty($this->_emailsubject)) {
-            $subject = $app->getCfg('sitename') . ' -- New Submission';
+            $subject = $fromname . ' -- New Submission';
         } else {
             $subject = $this->_emailsubject;
         }
@@ -339,8 +339,8 @@ class modContactFormHelper {
         $cc = null;
         $bcc = null;
         $attachment = null;
-        $replyto = null; #$this->data['email'];
-        $replytoname = null; #trim($this->data['fname'] . " " . $this->data['lname']);
+        $replyto = $this->data['email'];
+        $replytoname = trim($this->data['fname'] . " " . $this->data['lname']);
 
         foreach(explode(',', $this->_email) as $recipient) {
             JUtility::sendMail($from, $fromname, $recipient, $subject, $body, $mode, $cc, $bcc, $attachment, $replyto, $replytoname);

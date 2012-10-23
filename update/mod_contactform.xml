@@ -2,10 +2,10 @@
 <updates>
    <update>
       <name>Contact Form</name>
-      <description><![CDATA[<a href='http://www.pdxfixit.com/'><img src='http://updates.pdxfixit.com/logo.png' alt='PDXfixIT' border='0'/></a><br />Version: 1.9.0<br />Release Date: September 28, 2012<br />Contact Form]]></description>
+      <description><![CDATA[<a href='http://www.pdxfixit.com/'><img src='http://updates.pdxfixit.com/logo.png' alt='PDXfixIT' border='0'/></a><br />Version: 1.9.1<br />Release Date: October 23, 2012<br />Contact Form]]></description>
       <element>mod_contactform</element>
       <type>module</type>
-      <version>1.9.0</version>
+      <version>1.9.1</version>
       <infourl title="PDXfixIT">http://www.pdxfixit.com/</infourl>
       <downloads>
          <downloadurl type="full" format="zip">http://updates.pdxfixit.com/mod_contactform.zip</downloadurl>
@@ -17,10 +17,10 @@
    </update>
    <update>
       <name>Contact Form</name>
-      <description><![CDATA[<a href='http://www.pdxfixit.com/'><img src='http://updates.pdxfixit.com/logo.png' alt='PDXfixIT' border='0'/></a><br />Version: 1.9.0<br />Release Date: September 28, 2012<br />Contact Form]]></description>
+      <description><![CDATA[<a href='http://www.pdxfixit.com/'><img src='http://updates.pdxfixit.com/logo.png' alt='PDXfixIT' border='0'/></a><br />Version: 1.9.1<br />Release Date: October 23, 2012<br />Contact Form]]></description>
       <element>mod_contactform</element>
       <type>module</type>
-      <version>1.9.0</version>
+      <version>1.9.1</version>
       <infourl title="PDXfixIT">http://www.pdxfixit.com/</infourl>
       <downloads>
          <downloadurl type="full" format="zip">http://updates.pdxfixit.com/mod_contactform.zip</downloadurl>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="2.5.0" client="site" method="upgrade">
     <name>Contact Form</name>
-    <creationDate>September 28, 2012</creationDate>
+    <creationDate>October 23, 2012</creationDate>
     <author>PDXfixIT</author>
     <authorEmail>info@pdxfixit.com</authorEmail>
     <authorUrl>http://www.pdxfixit.com/</authorUrl>
-    <version>1.9.0</version>
+    <version>1.9.1</version>
     <copyright>(C) 2005 - 2012 Open Source Matters. All rights reserved</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <description>MOD_CONTACTFORM_XML_DESCRIPTION</description>
