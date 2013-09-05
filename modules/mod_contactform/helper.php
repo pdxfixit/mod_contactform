@@ -164,6 +164,8 @@ class modContactFormHelper {
             $this->data['url'] = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
             //collate the data
+			$fields = "";
+			$values = "";
             foreach ($this->data as $key => $value) {
                 if ($value) {
                     if (is_array($value))
