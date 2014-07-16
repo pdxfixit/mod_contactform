@@ -128,6 +128,7 @@ foreach ($reg->fields as $name => $fielddata) {
                 if ($fielddata['cols'])
                     $html .= " cols=\"{$fielddata['cols']}\"";
                 $html .= ">{$fielddata['value']}</textarea>";
+                $html .= $closingTags;
                 break;
             case 'hidden':
                 $html .= "<input type=\"hidden\" name=\"{$name}\" id=\"{$name}\" value=\"{$fielddata['value']}\" />\n";
@@ -162,29 +163,35 @@ foreach ($reg->fields as $name => $fielddata) {
 }
 
 //prep JS
-$js = "\n\njQuery.noConflict();
-jQuery(document).ready(function(){
-    jQuery(\"#form\").validate({
-        messages: {"
-        . $jsMessages . "
-        }
-        ,errorContainer: \"#errors\"
-        ,errorLabelContainer: \"#errors\"
-        ,wrapper: \"p\"
-    });"
-        . $jsInputMasks
-        . $jsDialogs . "
-});\n" .
-        'jQuery.validator.addMethod("zip", function(value, element) {
-	return this.optional(element) || /^[0-9]{5}(?:(-?)[0-9]{4})?$/.test(value);
-}, "Your zip code must be 5 or 9 digits.");
-jQuery.validator.addMethod("phone", function(phone_number, element) {
+$js = "";
+if (!empty($jsMessages)) {
+    $js .= "\n\njQuery.noConflict();
+    jQuery(document).ready(function(){
+        jQuery(\"#form\").validate({
+            messages: {"
+            . $jsMessages . "
+            }
+            ,errorContainer: \"#errors\"
+            ,errorLabelContainer: \"#errors\"
+            ,wrapper: \"p\"
+        });"
+            . $jsInputMasks
+            . $jsDialogs . "
+    });\n";
+}
+if ($reg->fields['zip']['status'] != 'hide') {
+    $js .= 'jQuery.validator.addMethod("zip", function(value, element) {
+        return this.optional(element) || /^[0-9]{5}(?:(-?)[0-9]{4})?$/.test(value);
+    }, "Your zip code must be 5 or 9 digits.");';
+}
+if ($reg->fields['phone']['status'] != 'hide') {
+    $js .= 'jQuery.validator.addMethod("phone", function(phone_number, element) {
     if( phone_number == "___-___-____ x_____" ) return true; //ignores empty input mask
     //phone_number = phone_number.replace(/\s+/g, "");
 	return this.optional(element) || phone_number.length > 9 &&
 		phone_number.match(/^\(?\b[0-9]{3}\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4}\b(?:[\s]?[x]?[\d]{1,5})?/);
-}, "Please specify a valid phone number");
-';
+}, "Please specify a valid phone number");';
+}
 
 // show it
 $moduleclass_sfx = ' ' . htmlspecialchars($params->get('moduleclass_sfx'));
@@ -192,10 +199,8 @@ $doc = & JFactory::getDocument();
 $baseurl = JURI::base(true);
 $doc->addStyleSheet('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css');
 $doc->addStyleDeclaration('.label { text-align:right; } .value { text-align:left; } .red, label.error { color:red; } #errors { display:none; } #recaptcha_widget_div { position:inherit !important; top:0 !important; }');
-$doc->addScript('https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js');
-$doc->addScript('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js');
-$doc->addScript($baseurl . '/modules/mod_contactform/js/jquery.validate.min.js');
-$doc->addScript($baseurl . '/modules/mod_contactform/js/jquery.maskedinput.min.js');
+$doc->addScript($baseurl . '/modules/mod_contactform/js/jquery.validate.min.js', 'text/javascript', true);
+$doc->addScript($baseurl . '/modules/mod_contactform/js/jquery.maskedinput.min.js', 'text/javascript', true);
 $doc->addScriptDeclaration($js);
 
 /*
