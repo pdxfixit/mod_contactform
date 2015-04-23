@@ -324,6 +324,7 @@ class modContactFormHelper {
                         break;
                     case 'ip':
                         $key = "IP Address";
+						$value = '<a href="http://ip-lookup.net/?ip=' . $value . '" target="_blank">' . $value . '</a>';
                         break;
                     case 'url':
                         $key = "Original URL";
